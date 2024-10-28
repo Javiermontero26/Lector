@@ -2,7 +2,7 @@
   "name": "lector",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://rfc.Javiermontero26.github.io/Lector/build",
+  "homepage": "https://Javiermontero26.github.io/Lector/build",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
