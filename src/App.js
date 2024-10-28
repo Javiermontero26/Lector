@@ -11,7 +11,7 @@ function App() {
         </p>
         <h2>hola mundo</h2>
         <h2>hola mundo</h2>
-        <h2>hola muasdasdndo</h2>
+        <h2>Javier</h2>
         <a
           className="App-link"
           href="https://reactjs.org"
