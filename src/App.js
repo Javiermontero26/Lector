@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h2>hola mundo</h2>
-        <h2>hola mundo</h2>
-        <h2>Javier Alfredo Fiestas Montero</h2>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate  } from 'react-router-dom';
+import Login from './pages/login'; // Importa tu componente Logincs
+import Libros from './pages/libros'; // Asegúrate de importar otros componentes según sea necesario
+import Dashboard from './pages/dashboard';
+import RecuperarContraseña from './pages/recuperar';
+const App = () => {
+    return (
+        <Router>
+            <Routes>
+                <Route path="/Lector/Login" element={<Login />} /> {/* Ruta de inicio que carga Login */}
+                <Route path="/Lector/pages/dashboard" element={<Dashboard />} />
+                <Route path="/Lector/pages/libros" element={<Libros />} />
+                <Route path="/Lector/pages/recuperar" element={<RecuperarContraseña />} />
+                {/* Ruta para redirigir a la página que queremos iniciar el sistema, en este caso el Login*/}
+                <Route path="/Lector" element={<Navigate to="/Lector/Login" replace />} />
+            </Routes>
+        </Router>
+    );
+};
 
 export default App;

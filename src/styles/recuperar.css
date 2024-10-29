@@ -1,0 +1,6 @@
+.background {
+    background-color: red;; /* Cambia la ruta a la imagen */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Asegúrate de que ocupe toda la altura */
+}
