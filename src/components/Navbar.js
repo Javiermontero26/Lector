@@ -11,15 +11,21 @@ const Navbar = () => {
                 <Link className="nav-link text-white" to="/Lector/pages/dashboard">
                     <img src={logoblanco} alt="logo" style={{ width: 150 }} />
                 </Link>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
+                <button className="navbar-toggler text-white bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon bg-white text-white"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div className="bg-dark py-2">
+                        <div className="bg-white" style={{height: 2}}></div>
+                    </div>
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0 mx-5">
                         <li className="nav-item">
                             <Link className="nav-link text-white" to="/Lector/pages/libros">LIBROS</Link>
                         </li>
                     </ul>
+                    <div className="bg-dark py-2">
+                        <div className="bg-white" style={{height: 2}}></div>
+                    </div>
                     <form className="d-flex mx-5" role="search">
                         <Link className="btn btn-danger" to="/Lector">Salir</Link>
                     </form>

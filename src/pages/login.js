@@ -1,11 +1,10 @@
 import '../styles/login.css';
-
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // Importa useNavigate para la redirección
-import logo from '../assets/images/logoblanco.png'; // Asegúrate de que la ruta sea correcta
-import { Notyf } from 'notyf'; // Importa Notyf si lo estás usando
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import logo from '../assets/images/logoblanco.png';
+import { Notyf } from 'notyf';
 import 'notyf/notyf.min.css';
-
+import { messages } from '../pages/mensajesdays'; // Asegúrate de que la ruta sea correcta
 
 const Login = () => {
     const notyf = new Notyf({
@@ -34,26 +33,33 @@ const Login = () => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const navigate = useNavigate(); // Hook para redirección
+    const [messageOfTheDay, setMessageOfTheDay] = useState(''); // Estado para el mensaje
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        // Obtener el día de la semana (0 = domingo, 1 = lunes, ..., 6 = sábado)
+        const dayOfWeek = new Date().getDay();
+        // Elegir un mensaje aleatorio del día actual
+        const randomMessageIndex = Math.floor(Math.random() * messages[dayOfWeek].length);
+        const message = messages[dayOfWeek][randomMessageIndex];
+        setMessageOfTheDay(message); // Establecer el mensaje
+    }, []); // El array vacío asegura que esto solo se ejecute una vez al montar el componente
 
     const handleSubmit = (event) => {
-        event.preventDefault(); // Evitar el envío del formulario por defecto
+        event.preventDefault();
 
         if (username === validCredentials.username && password === validCredentials.password) {
             notyf.success('¡Has iniciado sesión exitosamente!');
 
-            // Redirigir a la página de destino después de un corto retraso
             setTimeout(() => {
-                navigate('/Lector/pages/dashboard'); // Cambia a la ruta correspondiente en tu aplicación
+                navigate('/Lector/pages/dashboard');
             }, 1000);
         } else {
-            notyf.error('Usuario y/o contraseña incorrectos.'); // Notificación de error
+            notyf.error('Usuario y/o contraseña incorrectos.');
         }
     };
 
     return (
-
-
         <div className="container-fluid vh-100">
             <div className="row vh-100">
                 <div className="col-8 p-0 hide-on-small">
@@ -72,7 +78,7 @@ const Login = () => {
                         <div className="text-center mb-4">
                             <img className="img-fluid" src={logo} alt="logo" />
                             <hr className="text-white w-75 mx-5" />
-                            <h2 className="mb-3 mt-5 text-white h3 fw-bold">¡Espero que tu viernes sea increíble!</h2>
+                            <h2 className="mb-3 mt-5 text-white h3 fw-bold">{messageOfTheDay}</h2>
                         </div>
                         <div className="mb-3 mt-5">
                             <input
@@ -100,7 +106,6 @@ const Login = () => {
                 </div>
             </div>
         </div>
-
     );
 };
 
