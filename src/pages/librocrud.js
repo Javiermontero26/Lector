@@ -1,50 +1,58 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
-const Librocrud = () => {
-    return (
-        <div className="container">
+function Librocrud() {
+  const url = 'https://jsonplaceholder.typicode.com/posts'
+  const [post, setPots] = useState()
 
-            <div className="row mt-5">
-                <div className="col-8 d-flex align-items-center">
-                    <h1 className="text-start">LISTA DE LIBROS</h1>
-                </div>
-                <div className="col-4 text-end">
-                    <button className="btn btn-success">Agregar</button>
-                </div>
-            </div>
-            <hr className="text-dark" />
-            <div className="container">
+  const fetchApi = async () => {
+    const response = await fetch(url)
+    console.log((response).status)
+    const responseJSON = await response.json()
+    setPots(responseJSON)
+    // console.log(responseJSON) - Para verlo en consola todas los datos
+  }
 
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">NOMBRE</th>
-                            <th scope="col">AUTOR</th>
-                            <th scope="col">Género</th>
-                            <th scope="col">Precio</th>
-                            <th scope="col">Stock</th>
-                            <th scope="col">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>La Odisea</td>
-                            <td>Homero</td>
-                            <td>Ficción</td>
-                            <td>S/. 20.00</td>
-                            <td>20</td>
-                            <td>
-                                <button className="btn btn-warning bi-pencil-square">Editar</button>
-                                <button className="btn btn-danger bi-archive">Eliminar</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+  useEffect(() => {
+    fetchApi()
+  }, [])
+
+  return (
+    <div className='App'>
+      <h1 className='text-center m-5'>Lista de Usuarios</h1>
+      {!post ? 'Cargando...' : (
+        <div className='container'>
+          <table className='table table-striped'>
+            <thead>
+              <tr>
+                <th hidden>ID USER</th>
+                <th>ID</th>
+                <th>TITULO</th>
+                <th>BODY</th>
+                <th>ACCIONES</th>
+              </tr>
+            </thead>
+            <tbody>
+              {post.map((pts, index) => (
+                <tr key={index}>
+                  <td hidden>{pts.userId}</td>
+                  <td>{pts.id}</td>
+                  <td className='col-4'>{pts.title}</td>
+                  <td className='col-4'>{pts.body}</td>
+                  <td>
+                    <button className='btn btn-warning bi bi-pencil-square m-1 text-primary'></button>
+                    <button className='btn btn-danger bi bi-archive-fill m-1'></button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-    );
-};
+      )}
+    </div>
+  );
+}
 
 export default Librocrud;

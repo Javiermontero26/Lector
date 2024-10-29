@@ -21,7 +21,7 @@ const Navbar = () => {
                         </li>
                     </ul>
                     <form className="d-flex mx-5" role="search">
-                        <Link className="btn btn-danger" to="/Lector/Login">Salir</Link>
+                        <Link className="btn btn-danger" to="/Lector">Salir</Link>
                     </form>
                 </div>
             </div>

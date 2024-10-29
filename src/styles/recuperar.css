@@ -1,6 +1,6 @@
-.background {
-    background-color: red;; /* Cambia la ruta a la imagen */
-    background-size: cover;
-    background-position: center;
-    height: 100vh; /* Asegúrate de que ocupe toda la altura */
+.background-image {
+    background-image: url('../assets/images/recuperar-contraseña.png');
+    background-size: 100% 100%; /* Ajusta el ancho al 70% */
+    background-position: left; /* Alinea a la izquierda */
+    background-repeat: no-repeat; /* Evita que se repita */
 }

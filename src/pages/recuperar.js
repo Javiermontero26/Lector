@@ -61,10 +61,10 @@ const RecuperarContraseña = () => {
     };
 
     return (
-        <div className="container-fluid vh-100 d-flex align-items-center justify-content-center">
+        <div className="container-fluid vh-100 d-flex align-items-center justify-content-center background-image">
             <div className="row w-100 h-100">
                 <div className="col-lg-6 d-none d-lg-flex p-0">
-                    <img className="img-fluid w-100 h-100" src="img/fondocompleto.jfif" alt="Imagen de fondo" />
+                    
                 </div>
                 <div className="col-lg-6 d-flex align-items-center justify-content-center">
                     <form 
@@ -92,7 +92,7 @@ const RecuperarContraseña = () => {
                         </div>
                         <button type="submit" className="btn btn-dark w-100">Enviar código</button>
                         <div className="text-center mt-3">
-                            <Link to="/Lector/Login" className="text-white fw-bold">Volver al inicio de sesión</Link>
+                            <Link to="/Lector" className="text-white fw-bold">Volver al inicio de sesión</Link>
                         </div>
                     </form>
                 </div>
