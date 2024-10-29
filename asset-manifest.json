@@ -1,16 +1,19 @@
 {
   "files": {
-    "main.css": "/Lector/static/css/main.f5b7a6d7.css",
-    "main.js": "/Lector/static/js/main.a8b565f7.js",
+    "main.css": "/Lector/static/css/main.3ee79129.css",
+    "main.js": "/Lector/static/js/main.533b1623.js",
     "static/js/453.778d8c1f.chunk.js": "/Lector/static/js/453.778d8c1f.chunk.js",
+    "static/media/recuperar-contraseña.png": "/Lector/static/media/recuperar-contraseña.2913cf318e9cfed2ced4.png",
+    "static/media/bootstrap-icons.woff?": "/Lector/static/media/bootstrap-icons.39795c0b4513de014cf8.woff",
+    "static/media/bootstrap-icons.woff2?": "/Lector/static/media/bootstrap-icons.b7bcc075b395c14ce8c2.woff2",
     "static/media/logoblanco.png": "/Lector/static/media/logoblanco.db735b88345557e541eb.png",
     "index.html": "/Lector/index.html",
-    "main.f5b7a6d7.css.map": "/Lector/static/css/main.f5b7a6d7.css.map",
-    "main.a8b565f7.js.map": "/Lector/static/js/main.a8b565f7.js.map",
+    "main.3ee79129.css.map": "/Lector/static/css/main.3ee79129.css.map",
+    "main.533b1623.js.map": "/Lector/static/js/main.533b1623.js.map",
     "453.778d8c1f.chunk.js.map": "/Lector/static/js/453.778d8c1f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f5b7a6d7.css",
-    "static/js/main.a8b565f7.js"
+    "static/css/main.3ee79129.css",
+    "static/js/main.533b1623.js"
   ]
 }
