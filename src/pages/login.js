@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import logo from '../assets/images/logoblanco.png';
 import { Notyf } from 'notyf';
 import 'notyf/notyf.min.css';
-import { messages } from '../pages/mensajesdays'; // Asegúrate de que la ruta sea correcta
+import { messages } from '../pages/mensajesdays';
 
 const Login = () => {
     const notyf = new Notyf({
@@ -33,22 +33,26 @@ const Login = () => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [messageOfTheDay, setMessageOfTheDay] = useState(''); // Estado para el mensaje
+    const [messageOfTheDay, setMessageOfTheDay] = useState('');
     const navigate = useNavigate();
 
     useEffect(() => {
-        // Obtener el día de la semana (0 = domingo, 1 = lunes, ..., 6 = sábado)
+        const isAuthenticated = localStorage.getItem('isAuthenticated');
+        if (isAuthenticated) {
+            navigate('/Lector/pages/dashboard');
+        }
+
         const dayOfWeek = new Date().getDay();
-        // Elegir un mensaje aleatorio del día actual
         const randomMessageIndex = Math.floor(Math.random() * messages[dayOfWeek].length);
         const message = messages[dayOfWeek][randomMessageIndex];
-        setMessageOfTheDay(message); // Establecer el mensaje
-    }, []); // El array vacío asegura que esto solo se ejecute una vez al montar el componente
+        setMessageOfTheDay(message);
+    }, [navigate]);
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
         if (username === validCredentials.username && password === validCredentials.password) {
+            localStorage.setItem('isAuthenticated', 'true');
             notyf.success('¡Has iniciado sesión exitosamente!');
 
             setTimeout(() => {
