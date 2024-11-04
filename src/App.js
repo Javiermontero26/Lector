@@ -4,12 +4,13 @@ import Login from './pages/login';
 import Libros from './pages/libros';
 import Dashboard from './pages/dashboard';
 import RecuperarContraseña from './pages/recuperar';
-import ProtectedRoute from './components/ProtectedRoute ';
+import ProtectedRoute from './components/ProtectedRoute';
 
 const App = () => {
     return (
-        <Router>
+        <Router basename="/Lector"> {/* Configura el basename para el hosting */}
             <Routes>
+                <Route path="/" element={<Navigate to="/Lector" replace />} /> {/* Redirección a la ruta base */}
                 <Route path="/Lector" element={<Login />} />
                 <Route path="/Lector/pages/recuperar" element={<RecuperarContraseña />} />
                 
@@ -24,8 +25,9 @@ const App = () => {
                         <Libros />
                     </ProtectedRoute>
                 } />
-
-                <Route path="/" element={<Navigate to="/Lector" replace />} />
+                
+                {/* Opción para manejar rutas no encontradas */}
+                <Route path="*" element={<Navigate to="/Lector" replace />} />
             </Routes>
         </Router>
     );
