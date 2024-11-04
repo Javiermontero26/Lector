@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './pages/login';
 import Libros from './pages/libros';
 import Dashboard from './pages/dashboard';
@@ -8,9 +8,9 @@ import ProtectedRoute from './components/ProtectedRoute';
 
 const App = () => {
     return (
-        <Router basename="/Lector"> {/* Configura el basename para el hosting */}
+        <Router>
             <Routes>
-                <Route path="/" element={<Navigate to="/Lector" replace />} /> {/* Redirección a la ruta base */}
+                <Route path="/" element={<Navigate to="/Lector" replace />} />
                 <Route path="/Lector" element={<Login />} />
                 <Route path="/Lector/pages/recuperar" element={<RecuperarContraseña />} />
                 
@@ -25,8 +25,8 @@ const App = () => {
                         <Libros />
                     </ProtectedRoute>
                 } />
-                
-                {/* Opción para manejar rutas no encontradas */}
+
+                {/* Redirigir a una página específica si la ruta no existe */}
                 <Route path="*" element={<Navigate to="/Lector" replace />} />
             </Routes>
         </Router>
